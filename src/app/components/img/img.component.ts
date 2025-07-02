@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-img',
@@ -7,9 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ImgComponent implements OnInit {
 
-  @Input() img: string = 'valor init';
+  @Input() img: string = '';
+  @Output() loaded = new  EventEmitter<string>();
   imageDefault = './assets/images/default.jpg'
   constructor() { }
+
 
   ngOnInit(): void {
   }
@@ -17,6 +19,11 @@ export class ImgComponent implements OnInit {
   imgError(){
     this.img = this.imageDefault;
 
+  }
+  //se crea el evento del hijo hacia el padre, donde adjuntara el enlace original de la imagen
+  imgLoad(){
+    console.log('Log Hijo');
+    this.loaded.emit(this.img);
   }
 
 }
