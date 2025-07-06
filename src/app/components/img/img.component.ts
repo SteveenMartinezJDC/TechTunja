@@ -30,8 +30,8 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
   @Input() opcion2: string = '';
   @Output() loaded = new EventEmitter<string>();
   imageDefault = './assets/images/default.jpg';
-  counter = 0;
-  counterFn: number | undefined;
+  // counter = 0;
+  // counterFn: number | undefined;
   isBrowser: boolean = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
@@ -53,12 +53,12 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
     //BEFORE RENDER
     //ASYNC - FETCH -- ONE TIME
     console.log('ngOnInit', 'imgValue =>', this.img);
-    if (this.isBrowser) {
-      this.counterFn = window.setInterval(() => {  //RELOJ EN LINEA
-        this.counter += 1;
-        console.log('run counter');
-      }, 1000); //Se le asigna el tiempo en que requiere para que dé el uso de esta función
-    }
+    // if (this.isBrowser) {
+    //   this.counterFn = window.setInterval(() => {  //RELOJ EN LINEA
+    //     this.counter += 1;
+    //     console.log('run counter');
+    //   }, 1000); //Se le asigna el tiempo en que requiere para que dé el uso de esta función
+    // }
   }
 
   ngAfterViewInit() {
@@ -70,9 +70,9 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
   ngOnDestroy() {
     //delete
     console.log('ngOnDestroy');
-    if (this.isBrowser && this.counterFn) {
-      window.clearInterval(this.counterFn);
-    }
+    // if (this.isBrowser && this.counterFn) {
+    //   window.clearInterval(this.counterFn);
+    // }
   }
 
   //imagen que quedará por defecto en caso de que el enlace sea VACÍO

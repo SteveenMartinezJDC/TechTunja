@@ -1,5 +1,5 @@
-<img width="200" (load)="imgLoad()" (error)="imgError()" [src]="img" *ngIf="img; else elseImg">
-<h3>{{counter}}</h3>
+<img (load)="imgLoad()" (error)="imgError()" [src]="img" *ngIf="img; else elseImg">
+<!-- <h3>{{counter}}</h3> //puede servir para promociones temporales. -->
 <ng-template #elseImg>
   <img width="200"  src="./assets/images/default.jpg" alt="">
 </ng-template>
